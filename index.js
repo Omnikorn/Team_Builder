@@ -154,6 +154,7 @@ const createIntern = (data) => {
 }
 
 const engineerCardRender = () => {
+	let trial=""
 	for(i=0; i<enginArr.length; i++)
 	{ engineerFile = `<div class="card col-3" >
 	<div class="card-body manager">
@@ -164,10 +165,13 @@ const engineerCardRender = () => {
 		<p class="card-text">ID: ${enginArr[i].id}</p>
 		<p class="card-text">Email:${enginArr[i].email}</p>
 		<p class="card-text">github user name: ${enginArr[i].github}</p>
-	  </div>`;
-	//   console.log(manfile);
-	  return engineerFile}
-
+	  </div>
+	  </div>
+	  </div>`
+	  ;
+	trial= trial + engineerFile
+	  }
+	  return trial
 }
 
 
