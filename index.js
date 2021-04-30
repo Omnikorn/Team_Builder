@@ -5,7 +5,7 @@ const managArr=[]
 const enginArr = []
 const internArr = []
  console.log("the role= "+ role.engineer)
-
+let manfile
 const promptManager = [
 	{
 		type: "input",
@@ -120,53 +120,77 @@ const createIntern = (data) => {
 
 
 
- const managerCardRender= () =>{
-	 return `<div class="card col-3" >
-	 <div class="card-body manager">
-	   <h3 class="card-title">Manager</h3>
-	   <h6 class="card-subtitle mb-2 text-muted">icon</h6>
-	   <div class="cardtweak">
-		 <p class="card-text">Name:${item.name}</p>
-		 <p class="card-text">ID: ${item.id}</p>
-		 <p class="card-text">Email:${item.email}</p>
-		 <p class="card-text">Office Number: ${item.officeNumber}</p>
-	   </div>`
- }
+//  const managerCardRender= (managArr) =>{
+// 	 managArr.forEach(element => {
+// 	 const manfile = `<div class="card col-3" >
+// 	 <div class="card-body manager">
+// 	   <h3 class="card-title">Manager</h3>
+// 	   <h6 class="card-subtitle mb-2 text-muted">icon</h6>
+// 	   <div class="cardtweak">
+// 		 <p class="card-text">Name:${element.name}</p>
+// 		 <p class="card-text">ID: ${element.id}</p>
+// 		 <p class="card-text">Email:${element.email}</p>
+// 		 <p class="card-text">Office Number: ${element.officeNumber}</p>
+// 	   </div>`
+// 	   console.log(manfile)
+// 	   return manfile})
+	
+	   
+//  }
+
+ const managerCardRender= (managArr) =>{
+	for(i=0, i<managArr.length, i++)
+	{ manfile = `<div class="card col-3" >
+	<div class="card-body manager">
+	  <h3 class="card-title">Manager</h3>
+	  <h6 class="card-subtitle mb-2 text-muted">icon</h6>
+	  <div class="cardtweak">
+		<p class="card-text">Name:${managArr[i].name}</p>
+		<p class="card-text">ID: ${managArr[i].id}</p>
+		<p class="card-text">Email:${managArr[i].email}</p>
+		<p class="card-text">Office Number: ${managArr[i].officeNumber}</p>
+	  </div>`;
+	  console.log(manfile);
+	  return manfile}
+   
+	  
+}
 
 
 
 const  engineerCardRender =(enginArr) =>
-enginArr.array.forEach(element => {
+enginArr.forEach(element => {
 	return `<div class="card col-3" >
     <div class="card-body engineer">
       <h3 class="card-title">Engineer</h3>
       <h6 class="card-subtitle mb-2 text-muted">icon</h6>
       <div class="cardtweak">
-        <p class="card-text">Name:${item.name}</p>
-        <p class="card-text">ID: ${item.id}</p>
-        <p class="card-text">Email:${item.email}</p>
-        <p class="card-text">github: ${item.github}</p>
+        <p class="card-text">Name:${element.name}</p>
+        <p class="card-text">ID: ${element.id}</p>
+        <p class="card-text">Email:${element.email}</p>
+        <p class="card-text">github: ${element.github}</p>
       </div>`
 	
 });
 
 const  internCardRender =(internArr) =>
-internArr.array.forEach(element => {
+internArr.forEach(element => {
 	return `<div class="card col-3" >
     <div class="card-body engineer">
       <h3 class="card-title">Intern</h3>
       <h6 class="card-subtitle mb-2 text-muted">icon</h6>
       <div class="cardtweak">
-        <p class="card-text">Name:${item.name}</p>
-        <p class="card-text">ID: ${item.id}</p>
-        <p class="card-text">Email:${item.email}</p>
-        <p class="card-text">school: ${item.school}</p>
+        <p class="card-text">Name:${element.name}</p>
+        <p class="card-text">ID: ${element.id}</p>
+        <p class="card-text">Email:${element.email}</p>
+        <p class="card-text">school: ${element.school}</p>
       </div>`
 	
 });
 
 const htmlRender = () =>{
-	const htmlfile=`<!DOCTYPE html>
+	const htmlfile=
+	`<!DOCTYPE html>
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -184,7 +208,7 @@ const htmlRender = () =>{
 			</div>
 		  </div>
 		  <section class="container ">\n
-		  ${managerCardRender}\n
+		  ${managerCardRender()}\n
 		  </section>
 		  <section class="container container-fluid">
 		  <div class="row">\n
@@ -234,7 +258,7 @@ const whatNext = () => {
 
 const main = () => {
 	inquirer.prompt(promptManager)
-	.then((answers) => {createManager(answers)})
+	.then((answers) => createManager(answers))
 	.then(() => whatNext())
 }
 
