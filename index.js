@@ -9,7 +9,7 @@ const internArr = []
 const promptManager = [
 	{
 		type: "input",
-		name: "Manager",
+		name: "manager",
 		message: "Please enter the Manager's name: ",
 	},
 	{
@@ -32,7 +32,7 @@ const promptManager = [
 const promptEngineer = [
 	{
 		type: "input",
-		name: "Engineer",
+		name: "engineer",
 		message: "Please enter the engineer's name: ",
 	},
 	{
@@ -55,7 +55,7 @@ const promptEngineer = [
 const promptIntern = [
 	{
 		type: "input",
-		name: "Intern",
+		name: "intern",
 		message: "Please enter the Intern's name: ",
 	},
 	{
@@ -86,7 +86,7 @@ const promptNext = [
 
 const createManager = (answers) => {
 	const man = new role.manager(
-		answers.Manager,
+		answers.manager,
 		answers.id,
 		answers.email,
 		answers.officeNumber,
@@ -98,7 +98,7 @@ const createManager = (answers) => {
 
 const createEngin = (data) => {
 	const eng = new role.engineer(
-		data.name,
+		data.engineer,
 		data.id,
 		data.email,
 		data.github,
@@ -109,7 +109,7 @@ const createEngin = (data) => {
 
 const createIntern = (data) => {
 	const int = new role.intern(
-		data.name,
+		data.intern,
 		data.id,
 		data.email,
 		data.school,
@@ -218,11 +218,11 @@ const whatNext = () => {
 			inquirer
 				.prompt(promptEngineer)
 				.then((data) => createEngin(data))
-				.then(whatNext()) 
+				.then(()=>whatNext()) 
 		} else if (answers.next === "intern"){
             inquirer.prompt(promptIntern)
             .then((data) => createIntern(data))
-			.then(whatNext())
+			.then(()=>whatNext())
         } 
 		// else {
         //     htmlRender()
