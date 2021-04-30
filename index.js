@@ -5,6 +5,7 @@ const managArr=[]
 const enginArr = []
 const internArr = []
  console.log("the role= "+ role.engineer)
+
 const promptManager = [
 	{
 		type: "input",
@@ -85,32 +86,33 @@ const promptNext = [
 
 const createManager = (answers) => {
 	const man = new role.manager(
-		answers.name,
+		answers.Manager,
 		answers.id,
 		answers.email,
 		answers.officeNumber,
 	)
+	console.log("my manager is" , man)
 	managArr.push(man)
 	console.log("managers are = " + managArr)
 }
 
-const createEngin = (answers) => {
+const createEngin = (data) => {
 	const eng = new role.engineer(
-		answers.name,
-		answers.id,
-		answers.email,
-		answers.github,
+		data.name,
+		data.id,
+		data.email,
+		data.github,
 	)
 	enginArr.push(eng)
 	console.log("enigneers are " + enginArr)
 }
 
-const createIntern = (answers) => {
+const createIntern = (data) => {
 	const int = new role.intern(
-		answers.name,
-		answers.id,
-		answers.email,
-		answers.school,
+		data.name,
+		data.id,
+		data.email,
+		data.school,
 	)
 	internArr.push(int)
 	console.log("interns are " + internArr)
@@ -202,7 +204,8 @@ const htmlRender = () =>{
 	  </body>
 	  </html>
 
-		  `
+	 `
+	 return htmlfile
 } 
 
 
@@ -214,24 +217,25 @@ const whatNext = () => {
 		if (answers.next === "Engineer") {
 			inquirer
 				.prompt(promptEngineer)
-				.then((answers) => createEngin(answers))
+				.then((data) => createEngin(data))
 				.then(whatNext()) 
 		} else if (answers.next === "intern"){
             inquirer.prompt(promptIntern)
-            .then((answers) => createIntern(answers))
+            .then((data) => createIntern(data))
 			.then(whatNext())
-        } else {
-            htmlRender()
-        }
+        } 
+		// else {
+        //     htmlRender()
+        // }
 	})
-	.then((htmlfile) => fs.writeFileSync("teams.html", htmlfile))
+	.then(() => fs.writeFileSync("teams.html", htmlRender()))
 }
 
 
 const main = () => {
 	inquirer.prompt(promptManager)
 	.then((answers) => {createManager(answers)})
-	.then(whatNext())
+	.then(() => whatNext())
 }
 
 main()
