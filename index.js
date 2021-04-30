@@ -1,11 +1,13 @@
 const fs = require("fs")
 const inquirer = require("inquirer")
 const role = require("./builder.js")
-const managArr=[]
+const managArr = []
 const enginArr = []
 const internArr = []
- console.log("the role= "+ role.engineer)
+console.log("the role= " + role.engineer)
 let manfile
+let engineerFile
+let internFile
 const promptManager = [
 	{
 		type: "input",
@@ -80,7 +82,7 @@ const promptNext = [
 		type: "list",
 		name: "next",
 		message: " What team member do you want to add next ?",
-		choices: ["Engineer", "intern", "None"],
+		choices: ["Engineer", "Intern", "None"],
 	},
 ]
 
@@ -89,11 +91,11 @@ const createManager = (answers) => {
 		answers.manager,
 		answers.id,
 		answers.email,
-		answers.officeNumber,
+		answers.officeNumber
 	)
-	console.log("my manager is" , man)
+	// console.log("my manager is", man)
 	managArr.push(man)
-	console.log("managers are = " + managArr)
+	// console.log("managers are = " + managArr)
 }
 
 const createEngin = (data) => {
@@ -101,7 +103,7 @@ const createEngin = (data) => {
 		data.engineer,
 		data.id,
 		data.email,
-		data.github,
+		data.github
 	)
 	enginArr.push(eng)
 	console.log("enigneers are " + enginArr)
@@ -112,17 +114,15 @@ const createIntern = (data) => {
 		data.intern,
 		data.id,
 		data.email,
-		data.school,
+		data.school
 	)
 	internArr.push(int)
 	console.log("interns are " + internArr)
 }
 
-
-
-//  const managerCardRender= (managArr) =>{
-// 	 managArr.forEach(element => {
-// 	 const manfile = `<div class="card col-3" >
+// const managerCardRender = () => {
+// 	managArr.forEach((element) => {
+// 		 manfile = `<div class="card col-3" >
 // 	 <div class="card-body manager">
 // 	   <h3 class="card-title">Manager</h3>
 // 	   <h6 class="card-subtitle mb-2 text-muted">icon</h6>
@@ -132,14 +132,13 @@ const createIntern = (data) => {
 // 		 <p class="card-text">Email:${element.email}</p>
 // 		 <p class="card-text">Office Number: ${element.officeNumber}</p>
 // 	   </div>`
-// 	   console.log(manfile)
-// 	   return manfile})
-	
-	   
-//  }
+// 		//    console.log(manfile)
+// 		return manfile
+// 	})
+// }
 
- const managerCardRender= (managArr) =>{
-	for(i=0, i<managArr.length, i++)
+ const managerCardRender= () =>{
+	for(i=0; i<managArr.length; i++)
 	{ manfile = `<div class="card col-3" >
 	<div class="card-body manager">
 	  <h3 class="card-title">Manager</h3>
@@ -150,47 +149,48 @@ const createIntern = (data) => {
 		<p class="card-text">Email:${managArr[i].email}</p>
 		<p class="card-text">Office Number: ${managArr[i].officeNumber}</p>
 	  </div>`;
-	  console.log(manfile);
+	//   console.log(manfile);
 	  return manfile}
-   
-	  
+}
+
+const engineerCardRender = () => {
+	for(i=0; i<enginArr.length; i++)
+	{ engineerFile = `<div class="card col-3" >
+	<div class="card-body manager">
+	  <h3 class="card-title">Engineer</h3>
+	  <h6 class="card-subtitle mb-2 text-muted">icon</h6>
+	  <div class="cardtweak">
+		<p class="card-text">Name:${enginArr[i].name}</p>
+		<p class="card-text">ID: ${enginArr[i].id}</p>
+		<p class="card-text">Email:${enginArr[i].email}</p>
+		<p class="card-text">github user name: ${enginArr[i].github}</p>
+	  </div>`;
+	//   console.log(manfile);
+	  return engineerFile}
+
 }
 
 
+const internCardRender = () => {
+	for(i=0; i<internArr.length; i++)
+	{ internFile = `<div class="card col-3" >
+	<div class="card-body manager">
+	  <h3 class="card-title">Intern</h3>
+	  <h6 class="card-subtitle mb-2 text-muted">icon</h6>
+	  <div class="cardtweak">
+		<p class="card-text">Name:${internArr[i].name}</p>
+		<p class="card-text">ID: ${internArr[i].id}</p>
+		<p class="card-text">Email:${internArr[i].email}</p>
+		<p class="card-text">School: ${internArr[i].school}</p>
+	  </div>`;
+	//   console.log(internFile);
+	  return internFile}
 
-const  engineerCardRender =(enginArr) =>
-enginArr.forEach(element => {
-	return `<div class="card col-3" >
-    <div class="card-body engineer">
-      <h3 class="card-title">Engineer</h3>
-      <h6 class="card-subtitle mb-2 text-muted">icon</h6>
-      <div class="cardtweak">
-        <p class="card-text">Name:${element.name}</p>
-        <p class="card-text">ID: ${element.id}</p>
-        <p class="card-text">Email:${element.email}</p>
-        <p class="card-text">github: ${element.github}</p>
-      </div>`
+}
 	
-});
 
-const  internCardRender =(internArr) =>
-internArr.forEach(element => {
-	return `<div class="card col-3" >
-    <div class="card-body engineer">
-      <h3 class="card-title">Intern</h3>
-      <h6 class="card-subtitle mb-2 text-muted">icon</h6>
-      <div class="cardtweak">
-        <p class="card-text">Name:${element.name}</p>
-        <p class="card-text">ID: ${element.id}</p>
-        <p class="card-text">Email:${element.email}</p>
-        <p class="card-text">school: ${element.school}</p>
-      </div>`
-	
-});
-
-const htmlRender = () =>{
-	const htmlfile=
-	`<!DOCTYPE html>
+const htmlRender = () => {
+	const htmlfile = `<!DOCTYPE html>
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -212,15 +212,16 @@ const htmlRender = () =>{
 		  </section>
 		  <section class="container container-fluid">
 		  <div class="row">\n
-		  ${engineerCardRender}\n
+		  ${engineerCardRender()}\n
 		  </div>
 		  </section>
 		  </section>
 		  <section class="container container-fluid">
 		  <div class="row">\n
-		  ${internCardRender}\n
+		  ${internCardRender()}\n
 		  </div>
 		  </section>
+		  <h1> just checking we get here ? </h1>
 		  <!-- SCRIPT -->
 		  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> 
@@ -229,37 +230,40 @@ const htmlRender = () =>{
 	  </html>
 
 	 `
-	 return htmlfile
-} 
-
-
-
-
-
-const whatNext = () => {
-	inquirer.prompt(promptNext).then((answers) => {
-		if (answers.next === "Engineer") {
-			inquirer
-				.prompt(promptEngineer)
-				.then((data) => createEngin(data))
-				.then(()=>whatNext()) 
-		} else if (answers.next === "intern"){
-            inquirer.prompt(promptIntern)
-            .then((data) => createIntern(data))
-			.then(()=>whatNext())
-        } 
-		// else {
-        //     htmlRender()
-        // }
-	})
-	.then(() => fs.writeFileSync("teams.html", htmlRender()))
+	return htmlfile
 }
 
+const whatNext = () => {
+	inquirer
+		.prompt(promptNext)
+		.then((answers) => {
+			if (answers.next === "Engineer") {
+				inquirer
+					.prompt(promptEngineer)
+					.then((data) => createEngin(data))
+					.then(() => whatNext())
+			} else if (answers.next === "Intern") {
+				inquirer
+					.prompt(promptIntern)
+					.then((data) => createIntern(data))
+					.then(() => whatNext())
+			}
+			else if (answers.next === "None"){
+			    fs.writeFileSync("newteam.html",htmlRender())
+			}
+		})
+	}
+		// })
+// 		.then(() =>
+// 			fs.writeFileSync("teams.html", htmlRender())
+// 		)
+// }
 
 const main = () => {
-	inquirer.prompt(promptManager)
-	.then((answers) => createManager(answers))
-	.then(() => whatNext())
+	inquirer
+		.prompt(promptManager)
+		.then((answers) => createManager(answers))
+		.then(() => whatNext())
 }
 
 main()
