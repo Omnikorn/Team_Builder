@@ -1,24 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+   
+    box-sizing: border-box;
+}
 .jumbotron{
     background-color: cornflowerblue;
 }
 
+.card{
+    border: none;
+}
 
 .manager{
     background-color: darkcyan;
     padding: 0;
+    margin-bottom: 2vh;
 }
 
 .engineer{
-    background-color: darkorange;
+    background-color: rgb(107, 183, 202);
+    padding: 0;
+    margin-bottom: 2vh;
 }
 
 .intern{
     background-color: darksalmon;
+    padding: 0;
+    margin-bottom: 2vh;
 }
 
 .cardtweak{
     margin: 0px;;
-    padding:20px;
+    padding:1em;
     background-color: burlywood;
 
 }

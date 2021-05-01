@@ -146,7 +146,7 @@ const createIntern = (data) => {
 	  <div class="cardtweak">
 		<p class="card-text">Name:${managArr[i].name}</p>
 		<p class="card-text">ID: ${managArr[i].id}</p>
-		<p class="card-text">Email:${managArr[i].email}</p>
+		<p class="card-text">Email:<a href="mailto:${managArr[i].email}"> ${managArr[i].email}</a></p>
 		<p class="card-text">Office Number: ${managArr[i].officeNumber}</p>
 	  </div>`;
 	//   console.log(manfile);
@@ -154,7 +154,7 @@ const createIntern = (data) => {
 }
 
 const engineerCardRender = () => {
-	let trial=""
+	let finalEngineer=""
 	for(i=0; i<enginArr.length; i++)
 	{ engineerFile = `<div class="card col-3" >
 	<div class="card-body manager">
@@ -163,19 +163,20 @@ const engineerCardRender = () => {
 	  <div class="cardtweak">
 		<p class="card-text">Name:${enginArr[i].name}</p>
 		<p class="card-text">ID: ${enginArr[i].id}</p>
-		<p class="card-text">Email:${enginArr[i].email}</p>
-		<p class="card-text">github user name: ${enginArr[i].github}</p>
+		<p class="card-text">Email:<a href="mailto:${enginArr[i].email}"> ${enginArr[i].email}</a></p>
+		<p class="card-text">github user name: <a href="https://github.com/${enginArr[i].github}">${enginArr[i].github}</a></p>
 	  </div>
 	  </div>
 	  </div>`
 	  ;
-	trial= trial + engineerFile
+	finalEngineer= engineerFile + finalEngineer
 	  }
-	  return trial
+	  return finalEngineer
 }
 
 
 const internCardRender = () => {
+	let finalIntern=""
 	for(i=0; i<internArr.length; i++)
 	{ internFile = `<div class="card col-3" >
 	<div class="card-body manager">
@@ -184,12 +185,15 @@ const internCardRender = () => {
 	  <div class="cardtweak">
 		<p class="card-text">Name:${internArr[i].name}</p>
 		<p class="card-text">ID: ${internArr[i].id}</p>
-		<p class="card-text">Email:${internArr[i].email}</p>
+		<p class="card-text">Email:<a href="mailto:${internArr[i].email}"> ${internArr[i].email}</a></p>
 		<p class="card-text">School: ${internArr[i].school}</p>
-	  </div>`;
-	//   console.log(internFile);
-	  return internFile}
-
+	  </div>
+	  </div>
+	  </div>`
+	  ;
+	 finalIntern= finalIntern + internFile
+	  }
+	  return finalIntern
 }
 	
 
