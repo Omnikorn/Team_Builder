@@ -45,7 +45,7 @@ This is a command line application built using Nodejs and inquirer. It automatic
 >## Tests 
 
   Jest 
-
+![image](https://user-images.githubusercontent.com/75341811/116817451-4c481500-ab5e-11eb-9e23-cd51b19c57f6.png)
 
 >## Questions 
 
