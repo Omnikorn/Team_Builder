@@ -31,6 +31,8 @@ This is a command line application built using Nodejs and inquirer. It automatic
 >## Usag 
 
   Please run "node index.js" to start the application. After starting the application the user is prompted to enter the team’s manager’s details. Once that is done the user has an option to add various team members (engineers or inters). Once all team members have been entered the used clicks on “none” and an HTML file is generated displaying all team members. Please see pic 
+  
+  ![image](https://user-images.githubusercontent.com/75341811/116814044-ad67ec80-ab4e-11eb-9723-e0802d3c9418.png)
 
 
 >## Contributions 
