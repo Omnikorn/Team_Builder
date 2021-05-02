@@ -4,7 +4,7 @@ const role = require("./builder.js")
 const managArr = []
 const enginArr = []
 const internArr = []
-console.log("the role= " + role.engineer)
+
 let manfile
 let engineerFile
 let internFile
@@ -93,9 +93,9 @@ const createManager = (answers) => {
 		answers.email,
 		answers.officeNumber
 	)
-	// console.log("my manager is", man)
+	
 	managArr.push(man)
-	// console.log("managers are = " + managArr)
+	
 }
 
 const createEngin = (data) => {
@@ -106,7 +106,7 @@ const createEngin = (data) => {
 		data.github
 	)
 	enginArr.push(eng)
-	console.log("enigneers are " + enginArr)
+	
 }
 
 const createIntern = (data) => {
@@ -117,7 +117,7 @@ const createIntern = (data) => {
 		data.school
 	)
 	internArr.push(int)
-	console.log("interns are " + internArr)
+	
 }
 
 // const managerCardRender = () => {
