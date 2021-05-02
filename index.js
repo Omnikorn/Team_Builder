@@ -139,6 +139,7 @@ const createIntern = (data) => {
 
  const managerCardRender= () =>{
 	for(i=0; i<managArr.length; i++)
+	
 	{ manfile = `<div class="card col-4" >
 	<div class="card-body manager">
 	  <h3 class="card-title">Manager <i class="fas fa-user"></i></h3>
@@ -273,7 +274,7 @@ const main = () => {
 	inquirer
 		.prompt(promptManager)
 		.then((answers) => createManager(answers))
-		.then(() => whatNext())
+		.then(() => whatNext()).catch((err) => console.log(err))
 }
 
 main()
