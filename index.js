@@ -216,16 +216,18 @@ const htmlRender = () => {
 			</div>
 		  </div>
 		  <section class="container ">\n
+		  <div class="row justify-content-center">\n
 		  ${managerCardRender()}\n
+		  </div>
 		  </section>
 		  <section class="container">
-		  <div class="row">\n
+		  <div class="row justify-content-center">\n
 		  ${engineerCardRender()}\n
 		  </div>
 		  </section>
 		  </section>
 		  <section class="container container-fluid">
-		  <div class="row">\n
+		  <div class="row justify-content-center">\n
 		  ${internCardRender()}\n
 		  </div>
 		  </section>

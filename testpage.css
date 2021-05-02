@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 .jumbotron{
-    background-color: cornflowerblue;
+    background-color: rgb(119, 124, 134);
+    font-weight: 900;
 }
 
 .card{
